@@ -1,0 +1,31 @@
+[general]
+# The time between two monitors, written by minutes. Must be int
+interval = 5
+# The folder which contains all rules
+rules_folder = "/home/alstonwilliams/bigproject/cobra/rules"
+# Format of text send to user
+textFormat = "【cobra监控】您的服务 %s 出现 %s 异常，请登录服务器查看日志．"
+
+[user]
+# The telephone of user who will be notified when error occurs. Devide it by ',' if you wanna send to many people
+# telephone = "15689902981"
+# The email of user who will be notified when error occurs. Devide it by ',' if you wanna send to many people
+email = "pshuyue@gmail.com"
+
+# The following sections are relative to notify provider
+[yunpian]
+# 云片's interface which is used to send sms
+url = "https://sms.yunpian.com/v1/sms/send.json"
+# Your apikey which is allocated by 云片
+apikey = "your_apikey"
+
+# Look mailgun documention for detail
+[mailgun]
+# Your specific url which is allocated by mailgun
+url = "your_url"
+# Your apikey which is used to verify
+api = "your_api_key"
+# Your domain in mailgun
+from = "your_from"
+# Subject of mail
+subject = "cobra监控通知"

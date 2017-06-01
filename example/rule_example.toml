@@ -1,0 +1,8 @@
+# request information sections
+[request]
+# url of target, required
+url = "url_which_will_be_connected"
+# which method is required to call the url, required
+method = "method_to_connect_url"
+# Parameters which is devided by '&', regardless get or post. Convert the key/value pair to this format if post
+params = "name1=value1&name2=value2"
