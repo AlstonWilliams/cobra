@@ -56,7 +56,7 @@ func main(){
 
 	parseRules(config.Rules_folder)
 
-	lastExecuteTime := time.Now().Add(- time.Minute * 10)
+	lastExecuteTime := time.Now().Add(- time.Minute * time.Duration(config.Interval))
 
 	for true  {
 		if time.Since(lastExecuteTime).Minutes() > float64(config.Interval){
