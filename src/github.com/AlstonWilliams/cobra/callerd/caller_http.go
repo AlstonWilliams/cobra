@@ -51,11 +51,14 @@ func (Caller_http Caller_http) callGet(url string, params map[string]string) (bo
 		return false, "不能连接到服务"
 	}
 
-	if resp.StatusCode > HTTP_STATUS_CODE_ERROR {
+	if resp.StatusCode >= HTTP_STATUS_CODE_ERROR {
 		logrus.Error(urlToExecute + " returns " + strconv.Itoa(resp.StatusCode) + ", has notified the user")
-		return false, string(resp.StatusCode)
+		return false, strconv.Itoa(resp.StatusCode)
 	} else {
-		logrus.Info(url + " is work normally")
+		if url == "http://guoqiang.alstonwilliams.site:8082/v1/user/infomation/get" {
+			logrus.Warn(resp.StatusCode)
+		}
+		logrus.Info(urlToExecute + " works normally")
 	}
 
 	return true, ""
@@ -77,11 +80,11 @@ func (Caller_http Caller_http) callPost(urlToExecute string, params map[string]s
 		return false, "不能连接到服务"
 	}
 
-	if rsp.StatusCode > HTTP_STATUS_CODE_ERROR {
+	if rsp.StatusCode >= HTTP_STATUS_CODE_ERROR {
 		logrus.Error(urlToExecute + " returns " + strconv.Itoa(rsp.StatusCode) + ", has notified the user")
-		return false, string(rsp.StatusCode)
+		return false, strconv.Itoa(rsp.StatusCode)
 	} else {
-		logrus.Info(urlToExecute + " is work normally")
+		logrus.Info(urlToExecute + " works normally")
 	}
 
 	return true, ""
